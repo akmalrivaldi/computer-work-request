@@ -8,9 +8,9 @@ if ( !isset($_SESSION['login'])){
 
 $rows = isset($_POST['rows']) ? $_POST['rows'] : 1;
 $rows++;
+
 echo '
 <tr>
-    <td><?php echo $i?></td>
     <td><input type="text" name="old_sparepart" class="form-control"></td>
     <td><input type="number" name="old_qty" class="form-control"></td>
     <td><input type="text" name="new_sparepart" class="form-control"></td>

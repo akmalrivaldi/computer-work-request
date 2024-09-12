@@ -40,7 +40,7 @@ if ( !isset($_SESSION['login'])){
         }
     }
 
-    $rows = 1;
+$rows = 1;
 $cwr = query("SELECT * FROM requestor5");
 // // Inisialisasi jumlah baris default
 // if (!isset($_POST['rows'])) {
@@ -67,8 +67,43 @@ $cwr = query("SELECT * FROM requestor5");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Computer Work Request</title>
+    <style>
+      .col-md-4 input{
+        text-align: center;
+      }
+
+      .d-flex a img:hover{
+        transform: scale(1.1);
+        transition: 99ms linear ;
+      }
+
+    .hover-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    transition: visibility 0.2s, opacity 0.2s;
+    opacity: 0;
+  }
+  a:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+    background-color: blue;
+  }
+    </style>
   </head>
   <body>
+    <div class="d-flex justify-content-end me-4 mt-3">
+      <a href="generate_excel.php">
+        <img src="image/office365.png" alt="Generate excel" aria-label="generate Excel" title="Generate Excel">
+        <span class="hover-text">Generate Excel</span>
+      </a>
+    </div>
     <div class="container border">
 
     <!-- Requestor -->
@@ -118,26 +153,29 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="row text-center">
         <!-- Kolom 1 -->
         <div class="col-md-4">
-            <p>Requestor</p>
+            <p>User</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>Name</p>
+            <input type="text" name="user" class="form" required>
         </div>
         <div class="col-md-4">
-            <p>Requestor</p>
+            <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>Ass. Manager</p>
+            <input type="text" name="approvedBy1" class="form mb-4" required>
         </div>
         <div class="col-md-4">
-            <p>Requestor</p>
+            <p>Aproved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>Manager</p>
+            <input type="text" name="approvedBy2" class="form mb-4" required>
         </div>
     <input class="btn btn-primary justify-item-center mb-2" type="submit" name="submit" value="Submit">
     </form>
-    <a target="_blank" href="export.php">EXPORT DATA</a>
+    <!-- <a target="_blank" href="export.php">EXPORT DATA</a> -->
     <table class="table table-striped text-center d-none
     ">
   <thead>
@@ -228,7 +266,6 @@ $cwr = query("SELECT * FROM requestor5");
         <table class="table text-center" id="sparepart-table">
           <thead>
             <tr>
-              <th>No</th>
               <th>Old Sparepart</th>
               <th>Qty</th>
               <th>New Sparepart</th>
@@ -240,10 +277,9 @@ $cwr = query("SELECT * FROM requestor5");
           <tbody>
           <?php
             // Loop untuk menampilkan input berdasarkan jumlah baris
-            for ($i = 0; $i < $rows; $i++) {
+            for ($i = 1; $i <= $rows; $i++) {
                 ?>
                 <tr>
-                  <td><?php echo $i?></td>
                   <td><input type="text" name="old_sparepart" class="form-control"></td>
                   <td><input type="number" name="old_qty" class="form-control"></td>
                   <td><input type="text" name="new_sparepart" class="form-control"></td>
@@ -257,31 +293,39 @@ $cwr = query("SELECT * FROM requestor5");
           </tbody>
         </table>
       </div>
-       <button type="button" id="add-row" class="btn btn-primary mb-3">Add Row</button>
+       <button type="button" id="add-row" class="btn btn-success mb-4">Add Row</button>
        <div class="row text-center">
         <!-- Kolom 1 -->
-        <div class="col-md-4">
-            <p>Requestor</p>
+        <div class="col-md-3">
+            <p>PIC</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>Name</p>
+            <input type="text" name="pic" class="form mb-4" required>
         </div>
-        <div class="col-md-4">
-            <p>Requestor</p>
+        <div class="col-md-3">
+            <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>Ass/Manager</p>
+            <input type="text" name="approvedBy" class="form mb-4" required>
         </div>
-        <div class="col-md-4">
-            <p>Requestor</p>
+        <div class="col-md-3">
+            <p>Confirm By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
-            <p>(Name)</p>
+            <p>User</p>
+            <input type="text" name="confirmByUser" class="form mb-4" required>
         </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-          <button type="submit" name="submit2" class="btn btn-success mb-3 ms-2">Submit</button>
-          <a href="logout.php" class="btn btn-danger" onclick="return confirm('are you sure to logout?')">logout</a>
+        <div class="col-md-3">
+            <p>Confirm By</p>
+            <br><br> <!-- Spasi untuk area tanda tangan -->
+            <p>____________________</p>
+            <p>Ass/Manager</p>
+            <input type="text" name="ConfirmByAssOrManager" class="form mb-4" required>
+        </div>
+
+          <button type="submit" name="submit2" class="btn btn-primary mb-3">Submit</button>
           </div>
         </div>
       </form>
@@ -299,7 +343,7 @@ $(document).ready(function() {
 
         // AJAX request untuk menambah baris tanpa reload
         $.ajax({
-            url: 'add_row.php', // Buat file terpisah untuk menangani add row
+            url: 'add_row.php',
             method: 'POST',
             data: {rows: $('#rows').val()},
             success: function(response) {

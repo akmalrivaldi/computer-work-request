@@ -40,8 +40,19 @@ function tambah($data){
     $requestType = htmlspecialchars($data['requestType']);
     $assetTagNo = htmlspecialchars($data['assetTagNo']);
     $userIssue = htmlspecialchars($data['userIssue']);
+    $user= htmlspecialchars($data['user']);
+    $approvedBy1 = htmlspecialchars($data['approvedBy1']);
+    $approvedBy2 = htmlspecialchars($data['approvedBy2']);
 
-    $query = "INSERT INTO requestor5 VALUES('$kode', '$requestDate', '$requestType', '$assetTagNo', '$userIssue')";
+    $query = "INSERT INTO requestor5 VALUES
+    ('$kode', 
+    '$requestDate', 
+    '$requestType', 
+    '$assetTagNo', 
+    '$userIssue', 
+    '$user', 
+    '$approvedBy1', 
+    '$approvedBy2')";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
@@ -53,15 +64,35 @@ function tambahITS($data){
     $EstComplDate = htmlspecialchars($data['EstComplDate']);
     $ActualComplDate = htmlspecialchars($data['ActualComplDate']);
     $rootIssue = htmlspecialchars($data['rootIssue']);
-    $no = $data['no'];
+    // $no = $data['no'];
     $old_sparepart = htmlspecialchars($data['old_sparepart']);
     $old_qty = $data['old_qty'];
     $new_sparepart = htmlspecialchars($data['new_sparepart']);
     $new_qty = $data['new_qty'];
     $reason = htmlspecialchars($data['reason']);
     $last_stock = $data['last_stock'];
+    $pic = $data['pic'];
+    $approvedBy = $data['approvedBy'];
+    $confirmByUser = $data['confirmByUser'];
+    $ConfirmByAssOrManager = $data['ConfirmByAssOrManager'];
 
-    $query = "INSERT INTO ITS VALUES('','$helpDeskTicketNo', '$receivedDate', '$EstComplDate', '$ActualComplDate', '$rootIssue', '$no', '$old_sparepart', '$old_qty', '$new_sparepart', '$new_qty', '$reason', '$last_stock')";
+    $query = "INSERT INTO ITS VALUES
+    ('',
+    '$helpDeskTicketNo', 
+    '$receivedDate', 
+    '$EstComplDate', 
+    '$ActualComplDate', 
+    '$rootIssue',  
+    '$old_sparepart', 
+    '$old_qty', 
+    '$new_sparepart', 
+    '$new_qty', '
+    $reason', 
+    '$last_stock',
+    '$pic',
+    '$approvedBy',
+    '$confirmByUser',
+    '$ConfirmByAssOrManager')";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }

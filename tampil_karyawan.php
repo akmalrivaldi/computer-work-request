@@ -1,5 +1,6 @@
 <?php 
 
+require ('function.php');
 session_start();
 
 if ( !isset($_SESSION['login'])){
@@ -7,6 +8,8 @@ if ( !isset($_SESSION['login'])){
     exit;
 }
 
+
+$dataKaryawan = query("SELECT * FROM karyawan");
 ?>
 
 
@@ -29,25 +32,27 @@ if ( !isset($_SESSION['login'])){
 <table class="table table-bordered text-center">
 <thead>
 <tr>
-  <th scope="col">#</th>
-  <th scope="col">First</th>
-  <th scope="col">Last</th>
-  <th scope="col">Handle</th>
+  <th scope="col">No</th>
+  <th scope="col">Nama Lengkap</th>
+  <th scope="col">Tanggal Lahir</th>
+  <th scope="col">Alamat</th>
+  <th scope="col">No Handphone</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-  <th scope="row">1</th>
-  <td>Mark</td>
-  <td>Otto</td>
-  <td>@mdo</td>
-</tr>
-<tr>
-  <th scope="row">2</th>
-  <td>Jacob</td>
-  <td>Thornton</td>
-  <td>@fat</td>
-</tr>
+<?php $i = 1 ;?>
+<?php foreach($dataKaryawan as $row) :?>
+    <tr>
+      <td><?= $i; ?></td>
+      <td><?= $row['namaLengkap']; ?></td>
+      <td><?= $row['tanggalLahir']; ?></td>
+      <td><?= $row['alamat']; ?></td>
+      <td><?= $row['noHandphone']; ?></td>
+    </tr>
+<?php $i++ ;?>
+<?php endforeach ;?>
+
+
 </tbody>
 </table>
 <a href="add_karyawan.php" class="btn btn-primary">Tambah Data</a>

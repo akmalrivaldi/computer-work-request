@@ -66,11 +66,13 @@ if ( !isset($_SESSION['login'])){
             }
         }
     </style>
+
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 <div class="container mt-4">
         <h1 class="mb-4">Dashboard</h1>
-
+    
         <!-- Container for menu boxes -->
         <div class="row g-3" id="menuContainer">
             <?php
@@ -96,6 +98,8 @@ if ( !isset($_SESSION['login'])){
         <button id="seeMoreBtn" class="btn btn-primary mt-3" style="display: <?= $menuCount > 6 ? 'block' : 'none'; ?>;" onclick="showMoreMenus()">See More</button>
         <!-- Add new menu button -->
         <a href="add_menu.php" class="btn btn-success mt-3">Add New Menu</a>
+        <a href="logout.php" class="btn btn-danger mt-3" onclick="return confirm('are you sure to logout?')">logout <i data-feather="log-out"></i></a>
+
     </div>
 
     <script>
@@ -104,6 +108,9 @@ if ( !isset($_SESSION['login'])){
             hiddenMenus.forEach(menu => menu.classList.remove('hidden-menu'));
             document.getElementById('seeMoreBtn').style.display = 'none'; // Hide the button after all menus are shown
         }
+    </script>
+    <script>
+      feather.replace();
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
