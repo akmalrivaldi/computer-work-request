@@ -1,1 +1,12 @@
-[{"title":"ITS","image":"..\/connecting-teams-concept-landing-page.png","url":"SubMenuCWR.php"},{"title":"Human Resources","image":"..\/recruitment-concept-illustration.png","url":"subMenuHR.php"}]
+[
+  {
+    "title": "ITS",
+    "image": "../connecting-teams-concept-landing-page.png",
+    "url": "SubMenuCWR.php"
+  },
+  {
+    "title": "Human Resources",
+    "image": "../recruitment-concept-illustration.png",
+    "url": "subMenuHR.php"
+  }
+]

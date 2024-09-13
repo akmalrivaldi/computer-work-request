@@ -109,6 +109,37 @@ function tambahKaryawan($data){
     return mysqli_affected_rows($conn);
 }
 
+function hapus($id){
+
+    global $conn;
+    $id = $_GET['id'];
+
+    mysqli_query($conn, "DELETE FROM karyawan WHERE id = $id");
+    return mysqli_affected_rows($conn);
+
+}
+
+function ubah($data){
+
+    global $conn;
+
+    $id = $data['id'];
+    $namaLengkap = htmlspecialchars($data['namaLengkap']);
+    $tanggalLahir = htmlspecialchars($data['tanggalLahir']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $noHandphone = htmlspecialchars($data['noHandphone']);
+
+
+    $query = "UPDATE karyawan SET 
+    namaLengkap = '$namaLengkap', 
+    tanggalLahir = '$tanggalLahir', 
+    alamat = '$alamat',
+    noHandphone = '$noHandphone'
+    WHERE id = '$id'";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
 function register($data){
     global $conn;
     $username = strtolower(stripcslashes($data['username']));

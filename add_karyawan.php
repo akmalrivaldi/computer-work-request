@@ -12,11 +12,13 @@ if (isset($_POST['submit'])){
     if(tambahKaryawan($_POST) > 0){
         echo "<script>
         alert('item added successfully!');
+        document.location.href = 'tampil_karyawan.php';
     </script>";
     }else{
         echo "
         <script>
         alert('item failed added!');
+        document.location.href = 'tampil_karyawan.php';
         </script>
         ";
     }

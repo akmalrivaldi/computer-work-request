@@ -37,6 +37,7 @@ $dataKaryawan = query("SELECT * FROM karyawan");
   <th scope="col">Tanggal Lahir</th>
   <th scope="col">Alamat</th>
   <th scope="col">No Handphone</th>
+  <th scope="col">Action</th>
 </tr>
 </thead>
 <tbody>
@@ -48,6 +49,10 @@ $dataKaryawan = query("SELECT * FROM karyawan");
       <td><?= $row['tanggalLahir']; ?></td>
       <td><?= $row['alamat']; ?></td>
       <td><?= $row['noHandphone']; ?></td>
+      <td>
+        <a href="hapus.php?id=<?= $row['id']; ?>" onclick="return confirm('are you sure to delete this item?')">delete</a> 
+        <a href="edit.php?id=<?= $row['id']; ?>">edit</a>
+      </td>
     </tr>
 <?php $i++ ;?>
 <?php endforeach ;?>
