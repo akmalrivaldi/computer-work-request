@@ -56,7 +56,7 @@ $brng = query("SELECT * FROM requestor5");
   </head>
   <body>
 
-  <div class="container-fluid">
+  <div class="container">
   <table class="table table-striped text-center">
   <thead>
     <tr>

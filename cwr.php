@@ -233,21 +233,21 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="receivedDate" class="col-sm-2 col-form-label">Received Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="receivedDate" name="receivedDate" required >
+      <input type="date" class="form-control" id="receivedDate" name="receivedDate" required disabled readonly>
     </div>
     </div>
 
     <div class="mb-3 row">
     <label for="EstComplDate" class="col-sm-2 col-form-label">Est.Compl.Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="EstComplDate" name="EstComplDate"  required>
+      <input type="date" class="form-control" id="EstComplDate" name="EstComplDate"  required disabled readonly>
     </div>
     </div>
 
     <div class="mb-3 row">
     <label for="ActualComplDate" class="col-sm-2 col-form-label">Actual.Compl.Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="ActualComplDate" name="ActualComplDate" required>
+      <input type="date" class="form-control" id="ActualComplDate" name="ActualComplDate" required disabled readonly>
     </div>
     </div>
 
@@ -255,19 +255,19 @@ $cwr = query("SELECT * FROM requestor5");
             <div class="mb-3 mt-2 row">
     <label for="rootIssue" class="col-sm-2 mb-3 col-form-label">Root Issue</label>
     <div class="col-sm-10">
-    <input class="form-check-input" type="radio" name="rootIssue" id="hardware" value="Hardware" > 
+    <input class="form-check-input" type="radio" name="rootIssue" id="hardware" value="Hardware" disabled readonly> 
   <label class="form-check-label me-5" for="hardware">
     Hardware
   </label>
-    <input class="form-check-input" type="radio" name="rootIssue" id="electricity" value="Electricity">
+    <input class="form-check-input" type="radio" name="rootIssue" id="electricity" value="Electricity" disabled readonly>
   <label class="form-check-label me-5" for="Electricity">
     Electricity
   </label>
-    <input class="form-check-input" type="radio" name="rootIssue" id="office" value="Office/Others">
+    <input class="form-check-input" type="radio" name="rootIssue" id="office" value="Office/Others" disabled readonly>
   <label class="form-check-label me-5" for="office">
     Office/Others
   </label>
-    <input class="form-check-input" type="radio" name="rootIssue" id="email" value="Email/Virus/Spam">
+    <input class="form-check-input" type="radio" name="rootIssue" id="email" value="Email/Virus/Spam" disabled readonly>
   <label class="form-check-label me-5" for="email">
     Email/Virus/Spam
   </label>
@@ -293,12 +293,12 @@ $cwr = query("SELECT * FROM requestor5");
             for ($i = 1; $i <= $rows; $i++) {
                 ?>
                 <tr>
-                  <td><input type="text" name="old_sparepart" class="form-control"></td>
-                  <td><input type="number" name="old_qty" class="form-control"></td>
-                  <td><input type="text" name="new_sparepart" class="form-control"></td>
-                  <td><input type="number" name="new_qty" class="form-control"></td>
-                  <td><input type="text" name="reason" class="form-control"></td>
-                  <td><input type="number" name="last_stock" class="form-control"></td>
+                  <td><input type="text" name="old_sparepart" class="form-control" disabled readonly></td>
+                  <td><input type="number" name="old_qty" class="form-control" disabled readonly></td>
+                  <td><input type="text" name="new_sparepart" class="form-control" disabled readonly></td>
+                  <td><input type="number" name="new_qty" class="form-control" disabled readonly></td>
+                  <td><input type="text" name="reason" class="form-control" disabled readonly></td>
+                  <td><input type="number" name="last_stock" class="form-control" disabled readonly></td>
                 </tr>
                 <?php
             }
@@ -314,31 +314,29 @@ $cwr = query("SELECT * FROM requestor5");
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Name</p>
-            <input type="text" name="pic" class="form mb-4" required>
+            <input type="text" name="pic" class="form mb-4" required disabled readonly>
         </div>
         <div class="col-md-3">
             <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass/Manager</p>
-            <input type="text" name="approvedBy" class="form mb-4" required>
+            <input type="text" name="approvedBy" class="form mb-4" required disabled readonly>
         </div>
         <div class="col-md-3">
             <p>Confirm By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>User</p>
-            <input type="text" name="confirmByUser" class="form mb-4" required>
+            <input type="text" name="confirmByUser" class="form mb-4" required disabled readonly>
         </div>
         <div class="col-md-3">
             <p>Confirm By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass/Manager</p>
-            <input type="text" name="ConfirmByAssOrManager" class="form mb-4" required>
+            <input type="text" name="ConfirmByAssOrManager" class="form mb-4" required disabled readonly>
         </div>
-
-          <button type="submit" name="submit2" class="btn btn-primary mb-3">Submit</button>
           </div>
         </div>
       </form>

@@ -112,7 +112,7 @@ require ('function.php');
             <div class="col-12 col-md-6 mb-4">
                 <div class="card text-center" onclick="location.href='data_cwr.php';">
                     <div class="card-body">
-                        <h5 class="card-title">Data CWR</h5>
+                        <h5 class="card-title">Data CWR Requestor</h5>
                         <p class="card-text"></p>
                         <img class="img2" src="image/img4.png" alt="">
                     </div>

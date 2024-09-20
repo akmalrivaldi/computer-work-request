@@ -133,23 +133,23 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="requestDate" class="col-sm-2 col-form-label">Request Date</label>
     <div class="col-sm-10">
-    <input type="date" class="form-control" id="requestDate" name="requestDate" value="<?= isset($barang['requestDate']) ? $barang['requestDate'] : ''; ?>" readonly>
+    <input type="date" class="form-control" id="requestDate" name="requestDate" value="<?= isset($barang['requestDate']) ? $barang['requestDate'] : ''; ?>" disabled readonly>
 
     </div>
     </div>
 
     <div class="col-sm-10">
-      <input type="text" class="form-control d-none" id="kode" name="kode" value="<?= isset($barang['id']) ? $barang['id'] : ''; ?>" readonly>
+      <input type="text" class="form-control d-none" id="kode" name="kode" value="<?= isset($barang['id']) ? $barang['id'] : ''; ?>" disabled readonly>
     </div>
 
     <div class="mb-3 row">
     <label for="requestType" class="col-sm-2 col-form-label">Request Type</label>
     <div class="col-sm-10">
-    <input class="form-check-input" type="radio" name="requestType" id="repair" value="R" <?= isset($barang['requestType']) && $barang['requestType'] == 'R' ? 'checked' : ''; ?> readonly>
+    <input class="form-check-input" type="radio" name="requestType" id="repair" value="R" <?= isset($barang['requestType']) && $barang['requestType'] == 'R' ? 'checked' : ''; ?> disabled readonly>
   <label class="form-check-label me-5" for="R">
     Repair
   </label>
-  <input class="form-check-input" type="radio" name="requestType" id="additional" value="A" <?= isset($barang['requestType']) && $barang['requestType'] == 'A' ? 'checked' : ''; ?> readonly>
+  <input class="form-check-input" type="radio" name="requestType" id="additional" value="A" <?= isset($barang['requestType']) && $barang['requestType'] == 'A' ? 'checked' : ''; ?> disabled readonly>
   <label class="form-check-label" for="A">
     Additional
   </label>
@@ -159,7 +159,7 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="assetTagNo" class="col-sm-2 col-form-label">Asset's Tag No</label>
     <div class="col-sm-10">
-    <input type="text" class="form-control" id="assetTagNo" name="assetTagNo" value="<?= isset($barang['assetTagNo']) ? $barang['assetTagNo'] : ''; ?>" readonly>
+    <input type="text" class="form-control" id="assetTagNo" name="assetTagNo" value="<?= isset($barang['assetTagNo']) ? $barang['assetTagNo'] : ''; ?>" disabled readonly>
       <span style="font-size: 10px;"><i>*leave blank for additional request</i></span>
     </div>
     </div>
@@ -167,7 +167,7 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
         <label for="userIssue" class="col-sm-2 col-form-label">User's Issue</label>
         <div class="col-sm-10">
-        <textarea class="form-control" name="userIssue" id="userIssue" style="height: 150px;" readonly><?= isset($barang['userIssue']) ? $barang['userIssue'] : ''; ?></textarea>
+        <textarea class="form-control" name="userIssue" id="userIssue" style="height: 150px;" disabled readonly><?= isset($barang['userIssue']) ? $barang['userIssue'] : ''; ?></textarea>
         </div>
     </div>
     <div class="row text-center">
@@ -177,21 +177,21 @@ $cwr = query("SELECT * FROM requestor5");
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Name</p>
-            <input type="text" name="user" class="form" value="<?= isset($barang['user']) ? $barang['user'] : ''; ?>" readonly>
+            <input type="text" name="user" class="form" value="<?= isset($barang['user']) ? $barang['user'] : ''; ?>" disabled readonly>
         </div>
         <div class="col-md-4">
             <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass. Manager</p>
-            <input type="text" name="approvedBy1" class="form mb-4" value="<?= isset($barang['approvedBy1']) ? $barang['approvedBy1'] : ''; ?>" readonly>
+            <input type="text" name="approvedBy1" class="form mb-4" value="<?= isset($barang['approvedBy1']) ? $barang['approvedBy1'] : ''; ?>" disabled readonly>
         </div>
         <div class="col-md-4">
             <p>Aproved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Manager</p>
-            <input type="text" name="approvedBy2" class="form mb-4" value="<?= isset($barang['approvedBy2']) ? $barang['approvedBy2'] : ''; ?>" readonly>
+            <input type="text" name="approvedBy2" class="form mb-4" value="<?= isset($barang['approvedBy2']) ? $barang['approvedBy2'] : ''; ?>" disabled readonly>
         </div>
     </form>
     <!-- <a target="_blank" href="export.php">EXPORT DATA</a> -->
@@ -239,21 +239,21 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="receivedDate" class="col-sm-2 col-form-label">Received Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="receivedDate" name="receivedDate" required >
+      <input type="date" class="form-control" id="receivedDate" name="receivedDate" required>
     </div>
     </div>
 
     <div class="mb-3 row">
     <label for="EstComplDate" class="col-sm-2 col-form-label">Est.Compl.Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="EstComplDate" name="EstComplDate"  required>
+      <input type="date" class="form-control" id="EstComplDate" name="EstComplDate" required>
     </div>
     </div>
 
     <div class="mb-3 row">
     <label for="ActualComplDate" class="col-sm-2 col-form-label">Actual.Compl.Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="ActualComplDate" name="ActualComplDate" required>
+      <input type="date" class="form-control" id="ActualComplDate" name="ActualComplDate" required> 
     </div>
     </div>
 
@@ -261,7 +261,7 @@ $cwr = query("SELECT * FROM requestor5");
             <div class="mb-3 mt-2 row">
     <label for="rootIssue" class="col-sm-2 mb-3 col-form-label">Root Issue</label>
     <div class="col-sm-10">
-    <input class="form-check-input" type="radio" name="rootIssue" id="hardware" value="Hardware" > 
+    <input class="form-check-input" type="radio" name="rootIssue" id="hardware" value="Hardware"> 
   <label class="form-check-label me-5" for="hardware">
     Hardware
   </label>
@@ -269,11 +269,11 @@ $cwr = query("SELECT * FROM requestor5");
   <label class="form-check-label me-5" for="Electricity">
     Electricity
   </label>
-    <input class="form-check-input" type="radio" name="rootIssue" id="office" value="Office/Others">
+    <input class="form-check-input" type="radio" name="rootIssue" id="office" value="Office/Others" >
   <label class="form-check-label me-5" for="office">
     Office/Others
   </label>
-    <input class="form-check-input" type="radio" name="rootIssue" id="email" value="Email/Virus/Spam">
+    <input class="form-check-input" type="radio" name="rootIssue" id="email" value="Email/Virus/Spam" >
   <label class="form-check-label me-5" for="email">
     Email/Virus/Spam
   </label>
@@ -299,12 +299,12 @@ $cwr = query("SELECT * FROM requestor5");
             for ($i = 1; $i <= $rows; $i++) {
                 ?>
                 <tr>
-                  <td><input type="text" name="old_sparepart" class="form-control"></td>
-                  <td><input type="number" name="old_qty" class="form-control"></td>
-                  <td><input type="text" name="new_sparepart" class="form-control"></td>
-                  <td><input type="number" name="new_qty" class="form-control"></td>
-                  <td><input type="text" name="reason" class="form-control"></td>
-                  <td><input type="number" name="last_stock" class="form-control"></td>
+                  <td><input type="text" name="old_sparepart" class="form-control" ></td>
+                  <td><input type="number" name="old_qty" class="form-control" ></td>
+                  <td><input type="text" name="new_sparepart" class="form-control" ></td>
+                  <td><input type="number" name="new_qty" class="form-control" ></td>
+                  <td><input type="text" name="reason" class="form-control" ></td>
+                  <td><input type="number" name="last_stock" class="form-control" ></td>
                 </tr>
                 <?php
             }
@@ -320,31 +320,30 @@ $cwr = query("SELECT * FROM requestor5");
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Name</p>
-            <input type="text" name="pic" class="form mb-4" required>
+            <input type="text" name="pic" class="form mb-4" required >
         </div>
         <div class="col-md-3">
             <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass/Manager</p>
-            <input type="text" name="approvedBy" class="form mb-4" required>
+            <input type="text" name="approvedBy" class="form mb-4" required >
         </div>
         <div class="col-md-3">
             <p>Confirm By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>User</p>
-            <input type="text" name="confirmByUser" class="form mb-4" required>
+            <input type="text" name="confirmByUser" class="form mb-4" required > 
         </div>
         <div class="col-md-3">
             <p>Confirm By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass/Manager</p>
-            <input type="text" name="ConfirmByAssOrManager" class="form mb-4" required>
+            <input type="text" name="ConfirmByAssOrManager" class="form mb-4" required >
         </div>
-
-          <button type="submit" name="submit2" class="btn btn-primary mb-3">Submit</button>
+        <button type="submit" name="submit2" class="btn btn-primary mb-3">Submit</button>
           </div>
         </div>
       </form>
