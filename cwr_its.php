@@ -6,23 +6,29 @@ if ( !isset($_SESSION['login'])){
     exit;
 }
     require ('function.php');
-
-    if (isset($_POST['submit'])){
-
-        if(tambah($_POST) > 0){
-            echo "<script>
-            alert('item added successfully!');
-            document.location.href = 'cwr.php';
-        </script>";
-        }else{
-            echo "
-            <script>
-            alert('item failed added!');
-            document.location.href = 'cwr.php';
-            </script>
-            ";
-        }
+    $id = intval($_GET['id']); 
+    $barang = query("SELECT * FROM requestor5 WHERE id = $id")[0];
+    if (empty($barang)) {
+        echo "<script>alert('Data not found'); window.location.href='cwr.php';</script>";
+        exit;
     }
+
+    // if (isset($_POST['submit'])){
+
+    //     if(tambah($_POST) > 0){
+    //         echo "<script>
+    //         alert('item added successfully!');
+    //         document.location.href = 'cwr.php';
+    //     </script>";
+    //     }else{
+    //         echo "
+    //         <script>
+    //         alert('item failed added!');
+    //         document.location.href = 'cwr.php';
+    //         </script>
+    //         ";
+    //     }
+    // }
     if (isset($_POST['submit2'])){
 
         if(tambahITS($_POST) > 0){
@@ -127,23 +133,24 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="requestDate" class="col-sm-2 col-form-label">Request Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="requestDate" name="requestDate" title="" >
+    <input type="date" class="form-control" id="requestDate" name="requestDate" value="<?= isset($barang['requestDate']) ? $barang['requestDate'] : ''; ?>" readonly>
+
     </div>
     </div>
 
     <div class="col-sm-10">
-      <input type="text" class="form-control d-none" id="kode" name="kode" value="<?php echo $kodeReq ?>" readonly >
+      <input type="text" class="form-control d-none" id="kode" name="kode" value="<?= isset($barang['id']) ? $barang['id'] : ''; ?>" readonly>
     </div>
 
     <div class="mb-3 row">
     <label for="requestType" class="col-sm-2 col-form-label">Request Type</label>
     <div class="col-sm-10">
-    <input class="form-check-input" type="radio" name="requestType" id="repair" value="R">
-  <label class="form-check-label me-5" for="repair">
+    <input class="form-check-input" type="radio" name="requestType" id="repair" value="R" <?= isset($barang['requestType']) && $barang['requestType'] == 'R' ? 'checked' : ''; ?> readonly>
+  <label class="form-check-label me-5" for="R">
     Repair
   </label>
-    <input class="form-check-input" type="radio" name="requestType" id="additonal" value="A">
-  <label class="form-check-label" for="additional">
+  <input class="form-check-input" type="radio" name="requestType" id="additional" value="A" <?= isset($barang['requestType']) && $barang['requestType'] == 'A' ? 'checked' : ''; ?> readonly>
+  <label class="form-check-label" for="A">
     Additional
   </label>
     </div>
@@ -152,7 +159,7 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
     <label for="assetTagNo" class="col-sm-2 col-form-label">Asset's Tag No</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="assetTagNo" name="assetTagNo">
+    <input type="text" class="form-control" id="assetTagNo" name="assetTagNo" value="<?= isset($barang['assetTagNo']) ? $barang['assetTagNo'] : ''; ?>" readonly>
       <span style="font-size: 10px;"><i>*leave blank for additional request</i></span>
     </div>
     </div>
@@ -160,7 +167,7 @@ $cwr = query("SELECT * FROM requestor5");
     <div class="mb-3 row">
         <label for="userIssue" class="col-sm-2 col-form-label">User's Issue</label>
         <div class="col-sm-10">
-            <textarea class="form-control" name="userIssue" id="userIssue" style="height: 150px;"></textarea>
+        <textarea class="form-control" name="userIssue" id="userIssue" style="height: 150px;" readonly><?= isset($barang['userIssue']) ? $barang['userIssue'] : ''; ?></textarea>
         </div>
     </div>
     <div class="row text-center">
@@ -170,23 +177,22 @@ $cwr = query("SELECT * FROM requestor5");
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Name</p>
-            <input type="text" name="user" class="form" required>
+            <input type="text" name="user" class="form" value="<?= isset($barang['user']) ? $barang['user'] : ''; ?>" readonly>
         </div>
         <div class="col-md-4">
             <p>Approved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Ass. Manager</p>
-            <input type="text" name="approvedBy1" class="form mb-4" required>
+            <input type="text" name="approvedBy1" class="form mb-4" value="<?= isset($barang['approvedBy1']) ? $barang['approvedBy1'] : ''; ?>" readonly>
         </div>
         <div class="col-md-4">
             <p>Aproved By</p>
             <br><br> <!-- Spasi untuk area tanda tangan -->
             <p>____________________</p>
             <p>Manager</p>
-            <input type="text" name="approvedBy2" class="form mb-4" required>
+            <input type="text" name="approvedBy2" class="form mb-4" value="<?= isset($barang['approvedBy2']) ? $barang['approvedBy2'] : ''; ?>" readonly>
         </div>
-    <input class="btn btn-primary justify-item-center mb-2" type="submit" name="submit" value="Submit">
     </form>
     <!-- <a target="_blank" href="export.php">EXPORT DATA</a> -->
     <table class="table table-striped text-center d-none

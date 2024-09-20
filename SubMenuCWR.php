@@ -108,6 +108,16 @@ require ('function.php');
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card text-center" onclick="location.href='data_cwr.php';">
+                    <div class="card-body">
+                        <h5 class="card-title">Data CWR</h5>
+                        <p class="card-text"></p>
+                        <img class="img2" src="image/img4.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

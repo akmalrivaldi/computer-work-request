@@ -84,6 +84,7 @@ if (isset($_POST['login'])){
   <div class="container">
   <div class="row text-center mb-1 pt-5 mt-5">
           <div class="col">
+          <img class="img1" src="image/img6.png" alt="" style="width: 25%">
             <h2>Log-in</h2>
           </div>
         </div>
